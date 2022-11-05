@@ -1,0 +1,58 @@
+2022-11-04T18:33:33Z p-17 t-2t4 WARN: Loading runner configuration...
+2022-11-04T18:33:33Z p-17 t-2t4 DEBUG: New configuration: #<Sneakers::Configuration:0x00007fd4215854b0 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007fd421618828>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>1, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x47e0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ServerEngine::DaemonLogger:0x00007fd421586338 @rotate_age=5, @rotate_size=1048576, @file_dev=#<Logger::LogDevice:0x00007fd421585c80 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=5, @filename="log/sneakers.log", @dev=#<File:log/sneakers.log>, @binmode=false, @mon_data=#<Monitor:0x00007fd421585c58>, @mon_data_owner_object_id=9220>, @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007fd421585f28 @datetime_format=nil>, @formatter=Sneakers::Support::ProductionFormatter, @logdev=#<Logger::LogDevice:0x00007fd421585c80 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=5, @filename="log/sneakers.log", @dev=#<File:log/sneakers.log>, @binmode=false, @mon_data=#<Monitor:0x00007fd421585c58>, @mon_data_owner_object_id=9220>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+2022-11-04T18:33:33Z p-22 t-2t4 WARN: Loading runner configuration...
+2022-11-04T18:33:33Z p-22 t-2t4 DEBUG: New configuration: #<Sneakers::Configuration:0x00007fd4215ac6a0 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007fd421618828>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>1, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x47e0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ServerEngine::DaemonLogger:0x00007fd421586338 @rotate_age=5, @rotate_size=1048576, @file_dev=#<Logger::LogDevice:0x00007fd421585c80 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=5, @filename="log/sneakers.log", @dev=#<File:log/sneakers.log>, @binmode=false, @mon_data=#<Monitor:0x00007fd421585c58>, @mon_data_owner_object_id=9220>, @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007fd421585f28 @datetime_format=nil>, @formatter=Sneakers::Support::ProductionFormatter, @logdev=#<Logger::LogDevice:0x00007fd421585c80 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=5, @filename="log/sneakers.log", @dev=#<File:log/sneakers.log>, @binmode=false, @mon_data=#<Monitor:0x00007fd421585c58>, @mon_data_owner_object_id=9220>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+2022-11-04T18:33:33Z p-22 t-2t4 WARN: Loading runner configuration...
+2022-11-04T18:33:33Z p-22 t-2t4 DEBUG: New configuration: #<Sneakers::Configuration:0x00007fd4215ddfe8 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007fd421618828>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>1, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x47e0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ServerEngine::DaemonLogger:0x00007fd421586338 @rotate_age=5, @rotate_size=1048576, @file_dev=#<Logger::LogDevice:0x00007fd421585c80 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=5, @filename="log/sneakers.log", @dev=#<File:log/sneakers.log>, @binmode=false, @mon_data=#<Monitor:0x00007fd421585c58>, @mon_data_owner_object_id=9220>, @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007fd421585f28 @datetime_format=nil>, @formatter=Sneakers::Support::ProductionFormatter, @logdev=#<Logger::LogDevice:0x00007fd421585c80 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=5, @filename="log/sneakers.log", @dev=#<File:log/sneakers.log>, @binmode=false, @mon_data=#<Monitor:0x00007fd421585c58>, @mon_data_owner_object_id=9220>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+2022-11-04T18:33:33Z p-25 t-2t4 DEBUG: [worker-instabug.message.create:1:mrpwp1][#<Thread:0x00007fd425b5fc60 run>][instabug.message.create][#<Sneakers::Configuration:0x00007fd421616258>] New worker: subscribing.
+2022-11-04T18:33:33Z p-25 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007fd421616258>
+2022-11-04T18:33:33Z p-25 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+2022-11-04T18:33:33Z p-25 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+2022-11-04T18:33:33Z p-25 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+2022-11-04T18:33:33Z p-25 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+2022-11-04T18:33:33Z p-25 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+2022-11-04T18:33:33Z p-25 t-2t4 DEBUG: [worker-instabug.message.create:1:mrpwp1][#<Thread:0x00007fd425b5fc60 run>][instabug.message.create][#<Sneakers::Configuration:0x00007fd421616258>] New worker: I'm alive.
+2022-11-04T18:33:33Z p-25 t-93s DEBUG: [worker-instabug.message.create:1:mrpwp1][#<Thread:0x00007fd4211fd630 /usr/local/bundle/gems/bunny-2.19.0/lib/bunny/consumer_work_pool.rb:101 run>][instabug.message.create][#<Sneakers::Configuration:0x00007fd421616258>] Working off: "\"{\\\"body\\\":\\\"first_message9\\\",\\\"number\\\":34,\\\"chat_id\\\":2}\""
+2022-11-04T18:33:33Z p-36 t-2t4 DEBUG: [worker-instabug.message.create:1:bapdfa][#<Thread:0x00007fd425b5fc60 run>][instabug.message.create][#<Sneakers::Configuration:0x00007fd42161ce78>] New worker: subscribing.
+2022-11-04T18:33:34Z p-36 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007fd42161ce78>
+2022-11-04T18:33:34Z p-36 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+2022-11-04T18:33:34Z p-36 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+2022-11-04T18:33:34Z p-36 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+2022-11-04T18:33:34Z p-36 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+2022-11-04T18:33:34Z p-36 t-2t4 DEBUG: Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+2022-11-04T18:33:34Z p-36 t-2t4 DEBUG: [worker-instabug.message.create:1:bapdfa][#<Thread:0x00007fd425b5fc60 run>][instabug.message.create][#<Sneakers::Configuration:0x00007fd42161ce78>] New worker: I'm alive.
+2022-11-04T18:33:34Z p-36 t-94c DEBUG: [worker-instabug.message.create:1:bapdfa][#<Thread:0x00007fd421201c80 /usr/local/bundle/gems/bunny-2.19.0/lib/bunny/consumer_work_pool.rb:101 run>][instabug.message.create][#<Sneakers::Configuration:0x00007fd42161ce78>] Working off: "\"{\\\"body\\\":\\\"first_message9\\\",\\\"number\\\":35,\\\"chat_id\\\":2}\""
+2022-11-04T18:34:03Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:34:04Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:34:33Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:34:34Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:35:03Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:35:04Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:35:33Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:35:34Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:36:03Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:36:04Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:36:33Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:36:34Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:37:04Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:37:04Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:37:34Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:37:34Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:38:04Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:38:04Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:38:34Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:38:34Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:39:04Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:39:04Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:39:34Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:39:34Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:40:04Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:40:04Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:40:34Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:40:34Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:41:04Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:41:04Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:41:34Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:41:34Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:42:04Z p-25 t-2t4 DEBUG: Heartbeat: running threads [9]
+2022-11-04T18:42:04Z p-36 t-2t4 DEBUG: Heartbeat: running threads [9]

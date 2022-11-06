@@ -19,7 +19,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - './elastic-data:/usr/share/elasticsearch/data'
+      - './elastic-data:/var/lib/elasticsearch/data'
     ports:
       - 9200:9200
   db:
@@ -86,4 +86,4 @@ services:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
       ELASTICSEARCH_URL: elastic
-
+    entrypoint: /entrypoint.sh

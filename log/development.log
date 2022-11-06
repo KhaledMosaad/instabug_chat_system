@@ -1,0 +1,691 @@
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT GET_LOCK('2558702519155103580', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT RELEASE_LOCK('2558702519155103580')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /app/app/models/application_record.rb:1)
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (24.2ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (41.7ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT GET_LOCK('2558702519155103580', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateApplications (20221031093242)
+  [1m[35m (38.2ms)[0m  [1m[35mCREATE TABLE `applications` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `app_token` varchar(255) NOT NULL, `name` varchar(255), `chats_count` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, UNIQUE INDEX `unique_token` (`app_token`))[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (4.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221031093242')[0m
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateChats (20221031101600)
+  [1m[35m (47.5ms)[0m  [1m[35mCREATE TABLE `chats` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `number` int, `messages_count` int, `application_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_chats_on_application_id` (`application_id`), CONSTRAINT `fk_rails_3b5054ba3a`
+FOREIGN KEY (`application_id`)
+  REFERENCES `applications` (`id`)
+)[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221031101600')[0m
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20221031102220)
+  [1m[35m (24.4ms)[0m  [1m[35mCREATE TABLE `messages` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `number` int, `body` varchar(255), `chat_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_messages_on_chat_id` (`chat_id`), CONSTRAINT `fk_rails_0f670de7ba`
+FOREIGN KEY (`chat_id`)
+  REFERENCES `chats` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221031102220')[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToChats (20221101072554)
+  [1m[35m (40.1ms)[0m  [1m[35mALTER TABLE `chats` ADD `name` varchar(255)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221101072554')[0m
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2022-11-05 22:38:45.125832', '2022-11-05 22:38:45.125832')[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('2558702519155103580')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (20.7ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (19.9ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('2558702519155103580', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateApplications (20221031093242)
+  [1m[35m (21.8ms)[0m  [1m[35mCREATE TABLE `applications` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `app_token` varchar(255) NOT NULL, `name` varchar(255), `chats_count` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, UNIQUE INDEX `unique_token` (`app_token`))[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221031093242')[0m
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateChats (20221031101600)
+  [1m[35m (22.7ms)[0m  [1m[35mCREATE TABLE `chats` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `number` int, `messages_count` int, `application_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_chats_on_application_id` (`application_id`), CONSTRAINT `fk_rails_3b5054ba3a`
+FOREIGN KEY (`application_id`)
+  REFERENCES `applications` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221031101600')[0m
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20221031102220)
+  [1m[35m (23.0ms)[0m  [1m[35mCREATE TABLE `messages` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `number` int, `body` varchar(255), `chat_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_messages_on_chat_id` (`chat_id`), CONSTRAINT `fk_rails_0f670de7ba`
+FOREIGN KEY (`chat_id`)
+  REFERENCES `chats` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221031102220')[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToChats (20221101072554)
+  [1m[35m (40.0ms)[0m  [1m[35mALTER TABLE `chats` ADD `name` varchar(255)[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221101072554')[0m
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2022-11-05 22:47:58.143880', '2022-11-05 22:47:58.143880')[0m
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('2558702519155103580')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT GET_LOCK('2558702519155103580', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.8ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('2558702519155103580')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /app/app/models/application_record.rb:1)
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007fb4e895b5d8 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007fb4e8d0ce20>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007fb4e87b1ed0 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007fb4e87b4748 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007fb4e87b1de0 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007fb4e87b4590 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007fb4e87b44c8>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007fb4e8762ab0 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007fb4e8d0ce20>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007fb4e87b1ed0 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007fb4e87b4748 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007fb4e87b1de0 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007fb4e87b4590 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007fb4e87b44c8>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007fb4e876a1c0 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007fb4e8d0ce20>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007fb4e87b1ed0 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007fb4e87b4748 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007fb4e87b1de0 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007fb4e87b4590 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007fb4e87b44c8>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+[worker-instabug.chat.create:1:o8r26w][#<Thread:0x00007fb4ed34bc60 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007fb4e8779328>] New worker: subscribing.
+Maxretry handler [queue=instabug.chat.create] creating handler, opts=#<Sneakers::Configuration:0x00007fb4e8779328>
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-error
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-retry x-dead-letter-exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-error
+[worker-instabug.chat.create:1:o8r26w][#<Thread:0x00007fb4ed34bc60 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007fb4e8779328>] New worker: I'm alive.
+[worker-instabug.message.create:1:gqzlv6][#<Thread:0x00007fb4ed34bc60 run>][instabug.message.create][#<Sneakers::Configuration:0x00007fb4e877d720>] New worker: subscribing.
+Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007fb4e877d720>
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+[worker-instabug.message.create:1:gqzlv6][#<Thread:0x00007fb4ed34bc60 run>][instabug.message.create][#<Sneakers::Configuration:0x00007fb4e877d720>] New worker: I'm alive.
+[worker-instabug.chat.create:1:n76hbb][#<Thread:0x00007fb4ed34bc60 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007fb4e877fbb0>] New worker: subscribing.
+Maxretry handler [queue=instabug.chat.create] creating handler, opts=#<Sneakers::Configuration:0x00007fb4e877fbb0>
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-error
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-retry x-dead-letter-exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-error
+[worker-instabug.chat.create:1:n76hbb][#<Thread:0x00007fb4ed34bc60 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007fb4e877fbb0>] New worker: I'm alive.
+[worker-instabug.message.create:1:l1d9qv][#<Thread:0x00007fb4ed34bc60 run>][instabug.message.create][#<Sneakers::Configuration:0x00007fb4e8783a08>] New worker: subscribing.
+Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007fb4e8783a08>
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+[worker-instabug.message.create:1:l1d9qv][#<Thread:0x00007fb4ed34bc60 run>][instabug.message.create][#<Sneakers::Configuration:0x00007fb4e8783a08>] New worker: I'm alive.
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in <main> at /app/lib/tasks/whenever_update_application_count.rake:13)
+  [1m[35mSQL (0.3ms)[0m  [1m[35mSET SQL_SAFE_UPDATES=0;[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:13:in `block in <main>'
+  [1m[35m (0.9ms)[0m  [1m[33m    UPDATE applications 
+    JOIN (SELECT chats.application_id as app_id,count(chats.id) as chat_cnt FROM chats  
+    group by chats.application_id) as w on w.app_id=applications.id set applications.chats_count=w.chat_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:14:in `block in <main>'
+  [1m[35m (0.4ms)[0m  [1m[33m    UPDATE chats  
+    JOIN (SELECT messages.chat_id as chat_id,count(messages.id) as message_cnt FROM messages 
+     group by messages.chat_id) as w on w.chat_id=chats.id set chats.messages_count=w.message_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:15:in `block in <main>'
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT `chats`.* FROM `chats` ORDER BY `chats`.`id` ASC LIMIT 1000[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:16:in `block in <main>'
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in <main> at /app/lib/tasks/whenever_update_application_count.rake:13)
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET SQL_SAFE_UPDATES=0;[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:13:in `block in <main>'
+  [1m[35m (0.7ms)[0m  [1m[33m    UPDATE applications 
+    JOIN (SELECT chats.application_id as app_id,count(chats.id) as chat_cnt FROM chats  
+    group by chats.application_id) as w on w.app_id=applications.id set applications.chats_count=w.chat_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:14:in `block in <main>'
+  [1m[35m (0.7ms)[0m  [1m[33m    UPDATE chats  
+    JOIN (SELECT messages.chat_id as chat_id,count(messages.id) as message_cnt FROM messages 
+     group by messages.chat_id) as w on w.chat_id=chats.id set chats.messages_count=w.message_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:15:in `block in <main>'
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT `chats`.* FROM `chats` ORDER BY `chats`.`id` ASC LIMIT 1000[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:16:in `block in <main>'
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in <main> at /app/lib/tasks/whenever_update_application_count.rake:13)
+  [1m[35mSQL (0.3ms)[0m  [1m[35mSET SQL_SAFE_UPDATES=0;[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:13:in `block in <main>'
+  [1m[35m (0.7ms)[0m  [1m[33m    UPDATE applications 
+    JOIN (SELECT chats.application_id as app_id,count(chats.id) as chat_cnt FROM chats  
+    group by chats.application_id) as w on w.app_id=applications.id set applications.chats_count=w.chat_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:14:in `block in <main>'
+  [1m[35m (0.4ms)[0m  [1m[33m    UPDATE chats  
+    JOIN (SELECT messages.chat_id as chat_id,count(messages.id) as message_cnt FROM messages 
+     group by messages.chat_id) as w on w.chat_id=chats.id set chats.messages_count=w.message_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:15:in `block in <main>'
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT `chats`.* FROM `chats` ORDER BY `chats`.`id` ASC LIMIT 1000[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:16:in `block in <main>'
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in <main> at /app/lib/tasks/whenever_update_application_count.rake:13)
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET SQL_SAFE_UPDATES=0;[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:13:in `block in <main>'
+  [1m[35m (0.7ms)[0m  [1m[33m    UPDATE applications 
+    JOIN (SELECT chats.application_id as app_id,count(chats.id) as chat_cnt FROM chats  
+    group by chats.application_id) as w on w.app_id=applications.id set applications.chats_count=w.chat_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:14:in `block in <main>'
+  [1m[35m (0.3ms)[0m  [1m[33m    UPDATE chats  
+    JOIN (SELECT messages.chat_id as chat_id,count(messages.id) as message_cnt FROM messages 
+     group by messages.chat_id) as w on w.chat_id=chats.id set chats.messages_count=w.message_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:15:in `block in <main>'
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT `chats`.* FROM `chats` ORDER BY `chats`.`id` ASC LIMIT 1000[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:16:in `block in <main>'
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in <main> at /app/lib/tasks/whenever_update_application_count.rake:13)
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET SQL_SAFE_UPDATES=0;[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:13:in `block in <main>'
+  [1m[35m (0.6ms)[0m  [1m[33m    UPDATE applications 
+    JOIN (SELECT chats.application_id as app_id,count(chats.id) as chat_cnt FROM chats  
+    group by chats.application_id) as w on w.app_id=applications.id set applications.chats_count=w.chat_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:14:in `block in <main>'
+  [1m[35m (0.4ms)[0m  [1m[33m    UPDATE chats  
+    JOIN (SELECT messages.chat_id as chat_id,count(messages.id) as message_cnt FROM messages 
+     group by messages.chat_id) as w on w.chat_id=chats.id set chats.messages_count=w.message_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:15:in `block in <main>'
+  [1m[36mChat Load (0.3ms)[0m  [1m[34mSELECT `chats`.* FROM `chats` ORDER BY `chats`.`id` ASC LIMIT 1000[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:16:in `block in <main>'
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in <main> at /app/lib/tasks/whenever_update_application_count.rake:13)
+  [1m[35mSQL (0.3ms)[0m  [1m[35mSET SQL_SAFE_UPDATES=0;[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:13:in `block in <main>'
+  [1m[35m (1.0ms)[0m  [1m[33m    UPDATE applications 
+    JOIN (SELECT chats.application_id as app_id,count(chats.id) as chat_cnt FROM chats  
+    group by chats.application_id) as w on w.app_id=applications.id set applications.chats_count=w.chat_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:14:in `block in <main>'
+  [1m[35m (0.8ms)[0m  [1m[33m    UPDATE chats  
+    JOIN (SELECT messages.chat_id as chat_id,count(messages.id) as message_cnt FROM messages 
+     group by messages.chat_id) as w on w.chat_id=chats.id set chats.messages_count=w.message_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:15:in `block in <main>'
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT `chats`.* FROM `chats` ORDER BY `chats`.`id` ASC LIMIT 1000[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:16:in `block in <main>'
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('2558702519155103580', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('2558702519155103580')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /app/app/models/application_record.rb:1)
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f23777a1d80 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f2377af4e38>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f23775a4488 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f23775a6cd8 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f23775a4398 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f23775a6b20 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f23775a6a58>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f23775969a0 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f2377af4e38>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f23775a4488 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f23775a6cd8 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f23775a4398 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f23775a6b20 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f23775a6a58>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f237759dca0 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f2377af4e38>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f23775a4488 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f23775a6cd8 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f23775a4398 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f23775a6b20 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f23775a6a58>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+[worker-instabug.chat.create:1:7uj56e][#<Thread:0x00007f237c133c78 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f23775ad178>] New worker: subscribing.
+Maxretry handler [queue=instabug.chat.create] creating handler, opts=#<Sneakers::Configuration:0x00007f23775ad178>
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-error
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-retry x-dead-letter-exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-error
+[worker-instabug.chat.create:1:7uj56e][#<Thread:0x00007f237c133c78 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f23775ad178>] New worker: I'm alive.
+[worker-instabug.message.create:1:88zu6h][#<Thread:0x00007f237c133c78 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f23775b4900>] New worker: subscribing.
+Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007f23775b4900>
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+[worker-instabug.message.create:1:88zu6h][#<Thread:0x00007f237c133c78 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f23775b4900>] New worker: I'm alive.
+[worker-instabug.chat.create:1:w9k6n8][#<Thread:0x00007f237c133c78 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f23775b2ce0>] New worker: subscribing.
+Maxretry handler [queue=instabug.chat.create] creating handler, opts=#<Sneakers::Configuration:0x00007f23775b2ce0>
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-error
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-retry x-dead-letter-exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-error
+[worker-instabug.chat.create:1:w9k6n8][#<Thread:0x00007f237c133c78 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f23775b2ce0>] New worker: I'm alive.
+[worker-instabug.message.create:1:8024oq][#<Thread:0x00007f237c133c78 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f23775bb4d0>] New worker: subscribing.
+Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007f23775bb4d0>
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+[worker-instabug.message.create:1:8024oq][#<Thread:0x00007f237c133c78 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f23775bb4d0>] New worker: I'm alive.
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in <main> at /app/lib/tasks/whenever_update_application_count.rake:13)
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET SQL_SAFE_UPDATES=0;[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:13:in `block in <main>'
+  [1m[35m (0.8ms)[0m  [1m[33m    UPDATE applications 
+    JOIN (SELECT chats.application_id as app_id,count(chats.id) as chat_cnt FROM chats  
+    group by chats.application_id) as w on w.app_id=applications.id set applications.chats_count=w.chat_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:14:in `block in <main>'
+  [1m[35m (0.5ms)[0m  [1m[33m    UPDATE chats  
+    JOIN (SELECT messages.chat_id as chat_id,count(messages.id) as message_cnt FROM messages 
+     group by messages.chat_id) as w on w.chat_id=chats.id set chats.messages_count=w.message_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:15:in `block in <main>'
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT `chats`.* FROM `chats` ORDER BY `chats`.`id` ASC LIMIT 1000[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:16:in `block in <main>'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block (2 levels) in <class:Railtie> at /usr/local/bundle/gems/activerecord-7.0.4/lib/active_record/railtie.rb:264)
+Started POST "/applications" for 172.21.0.1 at 2022-11-05 23:11:19 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ApplicationsController#create as */*
+  Parameters: {"name"=>"first-app"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/applications_controller.rb:13:in `create'
+  [1m[36mApplication Create (0.7ms)[0m  [1m[32mINSERT INTO `applications` (`app_token`, `name`, `created_at`, `updated_at`) VALUES ('f84657f7-7bd9-4306-92f9-b520c80b366c', 'first-app', '2022-11-05 23:11:20.200715', '2022-11-05 23:11:20.200715')[0m
+  ↳ app/controllers/applications_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/applications_controller.rb:13:in `create'
+Completed 201 Created in 117ms (Views: 0.7ms | ActiveRecord: 5.4ms | Allocations: 12221)
+
+
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Started POST "/chats" for 172.21.0.1 at 2022-11-05 23:11:32 +0000
+Processing by ChatsController#create as */*
+  Parameters: {"app_token"=>"[FILTERED]", "name"=>"first_chat_first_app"}
+  [1m[36mApplication Load (0.6ms)[0m  [1m[34mSELECT `applications`.* FROM `applications` WHERE `applications`.`app_token` = '75509502-eb2b-44b2-ac8b-a89fce7a8de4' LIMIT 1[0m
+  ↳ app/controllers/chats_controller.rb:70:in `set_application'
+Completed 404 Not Found in 11ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1669)
+
+
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in <main> at /app/lib/tasks/whenever_update_application_count.rake:13)
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET SQL_SAFE_UPDATES=0;[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:13:in `block in <main>'
+  [1m[35m (0.7ms)[0m  [1m[33m    UPDATE applications 
+    JOIN (SELECT chats.application_id as app_id,count(chats.id) as chat_cnt FROM chats  
+    group by chats.application_id) as w on w.app_id=applications.id set applications.chats_count=w.chat_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:14:in `block in <main>'
+  [1m[35m (0.4ms)[0m  [1m[33m    UPDATE chats  
+    JOIN (SELECT messages.chat_id as chat_id,count(messages.id) as message_cnt FROM messages 
+     group by messages.chat_id) as w on w.chat_id=chats.id set chats.messages_count=w.message_cnt
+[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:15:in `block in <main>'
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT `chats`.* FROM `chats` ORDER BY `chats`.`id` ASC LIMIT 1000[0m
+  ↳ lib/tasks/whenever_update_application_count.rake:16:in `block in <main>'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('2558702519155103580', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('2558702519155103580')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /app/app/models/application_record.rb:1)
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f5449cd0b28 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f544a024ea0>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f5449ad4130 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f5449ad6980 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f5449ad4040 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f5449ad67c8 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f5449ad6700>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f5449ac6530 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f544a024ea0>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f5449ad4130 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f5449ad6980 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f5449ad4040 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f5449ad67c8 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f5449ad6700>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f5449acc458 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f544a024ea0>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f5449ad4130 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f5449ad6980 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f5449ad4040 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f5449ad67c8 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f5449ad6700>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+[worker-instabug.chat.create:1:w2nlj6][#<Thread:0x00007f544e663c90 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f5449adc498>] New worker: subscribing.
+Maxretry handler [queue=instabug.chat.create] creating handler, opts=#<Sneakers::Configuration:0x00007f5449adc498>
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-error
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-retry x-dead-letter-exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-error
+[worker-instabug.chat.create:1:w2nlj6][#<Thread:0x00007f544e663c90 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f5449adc498>] New worker: I'm alive.
+[worker-instabug.message.create:1:xlt9af][#<Thread:0x00007f544e663c90 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f5449ae6038>] New worker: subscribing.
+Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007f5449ae6038>
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+[worker-instabug.message.create:1:xlt9af][#<Thread:0x00007f544e663c90 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f5449ae6038>] New worker: I'm alive.
+[worker-instabug.chat.create:1:crlnps][#<Thread:0x00007f544e663c90 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f5449ae2398>] New worker: subscribing.
+Maxretry handler [queue=instabug.chat.create] creating handler, opts=#<Sneakers::Configuration:0x00007f5449ae2398>
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-error
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-retry x-dead-letter-exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-error
+[worker-instabug.chat.create:1:crlnps][#<Thread:0x00007f544e663c90 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f5449ae2398>] New worker: I'm alive.
+[worker-instabug.message.create:1:recgnr][#<Thread:0x00007f544e663c90 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f5449aead40>] New worker: subscribing.
+Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007f5449aead40>
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+[worker-instabug.message.create:1:recgnr][#<Thread:0x00007f544e663c90 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f5449aead40>] New worker: I'm alive.
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('2558702519155103580', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('2558702519155103580')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /app/app/models/application_record.rb:1)
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f236ddac338 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f236e104eb8>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f236dbb47d8 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f236dbb7028 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f236dbb46e8 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f236dbb6e70 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f236dbb6da8>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f236dba5ad0 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f236e104eb8>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f236dbb47d8 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f236dbb7028 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f236dbb46e8 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f236dbb6e70 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f236dbb6da8>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f236dbae1f8 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f236e104eb8>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f236dbb47d8 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f236dbb7028 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f236dbb46e8 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f236dbb6e70 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f236dbb6da8>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+[worker-instabug.chat.create:1:46jnud][#<Thread:0x00007f2372743c58 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f236dbc5768>] New worker: subscribing.
+Maxretry handler [queue=instabug.chat.create] creating handler, opts=#<Sneakers::Configuration:0x00007f236dbc5768>
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-error
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-retry x-dead-letter-exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-error
+[worker-instabug.chat.create:1:46jnud][#<Thread:0x00007f2372743c58 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f236dbc5768>] New worker: I'm alive.
+[worker-instabug.message.create:1:p4li2f][#<Thread:0x00007f2372743c58 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f236dbc9a70>] New worker: subscribing.
+Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007f236dbc9a70>
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+[worker-instabug.message.create:1:p4li2f][#<Thread:0x00007f2372743c58 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f236dbc9a70>] New worker: I'm alive.
+[worker-instabug.chat.create:1:57ettb][#<Thread:0x00007f2372743c58 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f236dbc43b8>] New worker: subscribing.
+Maxretry handler [queue=instabug.chat.create] creating handler, opts=#<Sneakers::Configuration:0x00007f236dbc43b8>
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-error
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-retry x-dead-letter-exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-error
+[worker-instabug.chat.create:1:57ettb][#<Thread:0x00007f2372743c58 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f236dbc43b8>] New worker: I'm alive.
+[worker-instabug.message.create:1:mo0ejl][#<Thread:0x00007f2372743c58 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f236dbc82d8>] New worker: subscribing.
+Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007f236dbc82d8>
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+[worker-instabug.message.create:1:mo0ejl][#<Thread:0x00007f2372743c58 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f236dbc82d8>] New worker: I'm alive.
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block (2 levels) in <class:Railtie> at /usr/local/bundle/gems/activerecord-7.0.4/lib/active_record/railtie.rb:264)
+Started POST "/applications" for 172.21.0.1 at 2022-11-06 00:13:32 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ApplicationsController#create as */*
+  Parameters: {"name"=>"first-app"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/applications_controller.rb:13:in `create'
+  [1m[36mApplication Create (0.7ms)[0m  [1m[32mINSERT INTO `applications` (`app_token`, `name`, `created_at`, `updated_at`) VALUES ('19ad6f7a-5fc3-4068-9695-9ac8c7787274', 'first-app', '2022-11-06 00:13:33.627161', '2022-11-06 00:13:33.627161')[0m
+  ↳ app/controllers/applications_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/applications_controller.rb:13:in `create'
+Completed 201 Created in 121ms (Views: 0.6ms | ActiveRecord: 5.3ms | Allocations: 12221)
+
+
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]

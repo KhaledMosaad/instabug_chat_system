@@ -689,3 +689,107 @@ Completed 201 Created in 121ms (Views: 0.6ms | ActiveRecord: 5.3ms | Allocations
 
 Heartbeat: running threads [9]
 Heartbeat: running threads [9]
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE `chatDB` DEFAULT CHARACTER SET `utf8mb4`[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from block in execute at /usr/local/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+  [1m[35m (17.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (15.4ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('2558702519155103580', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateApplications (20221031093242)
+  [1m[35m (56.9ms)[0m  [1m[35mCREATE TABLE `applications` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `app_token` varchar(255) NOT NULL, `name` varchar(255), `chats_count` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, UNIQUE INDEX `unique_token` (`app_token`))[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221031093242')[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateChats (20221031101600)
+  [1m[35m (19.4ms)[0m  [1m[35mCREATE TABLE `chats` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `number` int, `messages_count` int, `application_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_chats_on_application_id` (`application_id`), CONSTRAINT `fk_rails_3b5054ba3a`
+FOREIGN KEY (`application_id`)
+  REFERENCES `applications` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221031101600')[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20221031102220)
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE `messages` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `number` int, `body` varchar(255), `chat_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_messages_on_chat_id` (`chat_id`), CONSTRAINT `fk_rails_0f670de7ba`
+FOREIGN KEY (`chat_id`)
+  REFERENCES `chats` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221031102220')[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToChats (20221101072554)
+  [1m[35m (41.4ms)[0m  [1m[35mALTER TABLE `chats` ADD `name` varchar(255)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221101072554')[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2022-11-06 20:30:44.465438', '2022-11-06 20:30:44.465438')[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('2558702519155103580')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /app/app/models/application_record.rb:1)
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f7b6e5291d0 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f7b6ea80e58>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f7b6e530020 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f7b6e532870 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f7b6e52ff08 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f7b6e5326b8 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f7b6e5325f0>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f7b6e53dc98 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f7b6ea80e58>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f7b6e530020 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f7b6e532870 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f7b6e52ff08 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f7b6e5326b8 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f7b6e5325f0>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+Loading runner configuration...
+New configuration: #<Sneakers::Configuration:0x00007f7b6e5487b0 @hash={:error_reporters=>[#<Sneakers::ErrorReporter::DefaultLogger:0x00007f7b6ea80e58>], :runner_config_file=>nil, :metrics=>nil, :daemonize=>true, :start_worker_delay=>0.2, :workers=>2, :log=>#<IO:<STDOUT>>, :pid_path=>"tmp/pids/sneakers.pid", :amqp_heartbeat=>30, :prefetch=>1, :threads=>2, :share_threads=>false, :ack=>true, :hooks=>{}, :exchange=>"sneakers", :exchange_options=>{:type=>:direct, :durable=>true, :auto_delete=>false, :arguments=>{}}, :queue_options=>{:durable=>true, :auto_delete=>false, :exclusive=>false, :arguments=>{}}, :connection=>#<Bunny::Session:0x4ba0 guest@rabbitmq:5672, vhost=/, addresses=[rabbitmq:5672]>, :handler=>Sneakers::Handlers::Maxretry, :retry_max_times=>10, :retry_timeout=>180000, :logger=>#<ActiveSupport::Logger:0x00007f7b6e530020 @level=0, @progname=nil, @default_formatter=#<Logger::Formatter:0x00007f7b6e532870 @datetime_format=nil>, @formatter=#<ActiveSupport::Logger::SimpleFormatter:0x00007f7b6e52ff08 @datetime_format=nil, @thread_key="activesupport_tagged_logging_tags:11180">, @logdev=#<Logger::LogDevice:0x00007f7b6e5326b8 @shift_period_suffix="%Y%m%d", @shift_size=1048576, @shift_age=0, @filename="/app/log/development.log", @dev=#<File:/app/log/development.log>, @binmode=false, @mon_data=#<Monitor:0x00007f7b6e5325f0>, @mon_data_owner_object_id=4440>>, :log_level=>0, :worker_type=>"process", :worker_classes=>[ChatCreateWorker, MessageCreateWorker], :log_stdout=>false, :log_stderr=>false}>
+[worker-instabug.chat.create:1:chkm11][#<Thread:0x00007f7b730bfc70 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f7b6e4db0e8>] New worker: subscribing.
+Maxretry handler [queue=instabug.chat.create] creating handler, opts=#<Sneakers::Configuration:0x00007f7b6e4db0e8>
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-error
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-retry x-dead-letter-exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-error
+[worker-instabug.chat.create:1:chkm11][#<Thread:0x00007f7b730bfc70 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f7b6e4db0e8>] New worker: I'm alive.
+[worker-instabug.message.create:1:t8p454][#<Thread:0x00007f7b730bfc70 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f7b6e4df6c0>] New worker: subscribing.
+Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007f7b6e4df6c0>
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+[worker-instabug.message.create:1:t8p454][#<Thread:0x00007f7b730bfc70 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f7b6e4df6c0>] New worker: I'm alive.
+[worker-instabug.chat.create:1:9mv7lf][#<Thread:0x00007f7b730bfc70 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f7b6e4d9888>] New worker: subscribing.
+Maxretry handler [queue=instabug.chat.create] creating handler, opts=#<Sneakers::Configuration:0x00007f7b6e4d9888>
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-error
+Maxretry handler [queue=instabug.chat.create] creating exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-retry x-dead-letter-exchange=instabug.chat.create-retry-requeue
+Maxretry handler [queue=instabug.chat.create] creating queue=instabug.chat.create-error
+[worker-instabug.chat.create:1:9mv7lf][#<Thread:0x00007f7b730bfc70 run>][instabug.chat.create][#<Sneakers::Configuration:0x00007f7b6e4d9888>] New worker: I'm alive.
+[worker-instabug.message.create:1:mdihny][#<Thread:0x00007f7b730bfc70 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f7b6e4de388>] New worker: subscribing.
+Maxretry handler [queue=instabug.message.create] creating handler, opts=#<Sneakers::Configuration:0x00007f7b6e4de388>
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-error
+Maxretry handler [queue=instabug.message.create] creating exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-retry x-dead-letter-exchange=instabug.message.create-retry-requeue
+Maxretry handler [queue=instabug.message.create] creating queue=instabug.message.create-error
+[worker-instabug.message.create:1:mdihny][#<Thread:0x00007f7b730bfc70 run>][instabug.message.create][#<Sneakers::Configuration:0x00007f7b6e4de388>] New worker: I'm alive.
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]
+Heartbeat: running threads [9]

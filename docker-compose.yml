@@ -60,7 +60,7 @@ services:
       RABBITMQ_DEFAULT_PASS: guest
   app:
     build: .
-    command: rails db:migrate && rails routes && rake sneakers:run WORKERS = MessageCreateWorker,ChatCreateWorker && rails s 
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rake db:create && bundle exec rake db:migrate && rails routes && rake sneakers:run WORKERS = MessageCreateWorker,ChatCreateWorker && bundle exec whenever --update-crontab && service cron start && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - '.:/app'
     ports:

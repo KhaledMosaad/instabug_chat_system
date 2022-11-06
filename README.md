@@ -30,7 +30,7 @@ The callenge is chat system that has multiple Application identified by token, e
 | message | post | /messages / {"body":"first_message","chat_number":"1","app_token":"application token"} | create new message |
 | message | patch | /messages/:number / {"body":"first_message","chat_number":"1","app_token":"application token"} | update body of message |
 
-[ Postman collection Url  ] (https://warped-satellite-695943.postman.co/workspace/My-Workspace~fe8b6a88-9876-44d1-870e-67d72c4de080/collection/13141054-3d841185-8a1f-4791-932d-75225d8fa941?action=share&creator=13141054)
+[Postman collection Url] (https://warped-satellite-695943.postman.co/workspace/My-Workspace~fe8b6a88-9876-44d1-870e-67d72c4de080/collection/13141054-3d841185-8a1f-4791-932d-75225d8fa941?action=share&creator=13141054)
 
 
 # My Approach 

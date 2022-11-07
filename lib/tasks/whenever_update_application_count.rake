@@ -13,5 +13,4 @@ task update_application_count: :environment do
   ActiveRecord::Base.connection.exec_query("SET SQL_SAFE_UPDATES=0;")
   ActiveRecord::Base.connection.execute(Arel.sql(update_application_sql))
   ActiveRecord::Base.connection.execute(Arel.sql(update_chat_sql))
-  Chat.import
 end

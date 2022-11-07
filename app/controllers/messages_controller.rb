@@ -40,9 +40,16 @@ class MessagesController < ApplicationController
     @message.update(@new_params)
     head :no_content
   end
+  def search
+    result = Message.search(search_params,@chat)
+    json_response(result)
+  end
 
   private
-
+  def search_params
+    message_params
+    params.permit(:q)
+  end
   def message_params
     params.permit(:app_token,:body,:chat_number)
   end

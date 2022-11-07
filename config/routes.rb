@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   get '/chats/:app_token/:number/messages', to: 'chats#index'
   post '/chats', to: 'chats#create'
   patch '/chats/:number', to: 'chats#update' 
-  get '/chats/:app_token/:number/search/:q', to: 'chats#search'
   # messages endpoints
   get '/messages/:app_token/:chat_number/:number', to: 'messages#show'
   post '/messages', to: 'messages#create'
   patch '/messages/:number', to: 'messages#update'
+  get '/messages/:app_token/:chat_number/search/:q', to: 'messages#search'
 end

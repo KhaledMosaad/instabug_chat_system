@@ -48,16 +48,8 @@ class ChatsController < ApplicationController
     head :no_content
   end
 
-  def search
-    result = Chat.search(search_params,@chat)
-    json_response(result)
-  end
 
   private
-  def search_params
-    chat_params
-    params.permit(:q)
-  end
   def chat_params
     params.permit(:name,:app_token)
   end

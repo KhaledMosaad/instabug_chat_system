@@ -25,12 +25,12 @@ The callenge is chat system that has multiple Application identified by token, e
 | Chat | post | /chats | { "name": "name of the chat ","app_token": "application token "} | create new chat with application token |
 | chat | patch | /chats/:number | { "name": "updated name of the chat " ,"app_token": "application token "} | update chat name |
 | chat | get | /chats/:app_token/:number/messages | no body | get chat messages |
-| chat | get | /chats/:app_token/:number/search/:q | no body | search on messges bodies on spacific chat on spacific application |
 | message | get | /messages/:app_token/:chat_number/:number | no body | get message by application token and chat number and message number |
 | message | post | /messages / {"body":"first_message","chat_number":"1","app_token":"application token"} | create new message |
 | message | patch | /messages/:number / {"body":"first_message","chat_number":"1","app_token":"application token"} | update body of message |
+| message | get | /chats/:app_token/:chat_number/search/:q | no body | search on messges bodies on spacific chat on spacific application |
 
-[Postman collection Url] (https://warped-satellite-695943.postman.co/workspace/My-Workspace~fe8b6a88-9876-44d1-870e-67d72c4de080/collection/13141054-3d841185-8a1f-4791-932d-75225d8fa941?action=share&creator=13141054)
+[postman collection Url](https://warped-satellite-695943.postman.co/workspace/My-Workspace~fe8b6a88-9876-44d1-870e-67d72c4de080/collection/13141054-3d841185-8a1f-4791-932d-75225d8fa941?action=share&creator=13141054)
 
 
 # My Approach 

@@ -6,7 +6,12 @@
 
 # Ignore bundler config.
 /.bundle
-
+/db-data
+/redis-data
+/elastic-data
+/log/development.log
+/log/sneakers.log
+/log/cron.log
 # Ignore all logfiles and tempfiles.
 /tmp/*
 !/log/.keep
@@ -16,7 +21,6 @@
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
-
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep

@@ -8,6 +8,15 @@ The callenge is chat system that has multiple Application identified by token, e
 * Using RabbitMQ
 * Using Redis 
 
+# How to run the application
+
+just one command and everything up and running 
+
+> docker-compose up
+
+***i had some issues due to permissions on the containers so please contact me if any of the containers can't be run***
+
+
 # System Design 
 
 ![ChatSystemDesign](https://user-images.githubusercontent.com/48384324/200163818-91db8747-14bf-410b-a023-5d17983c1e68.PNG)

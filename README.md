@@ -61,6 +61,7 @@ just one command and everything up and running
     2) I had to decide also how many number of worker will work 
       - For now i make the number of workers 2 for each queue because it depend on ROR-application
 * Cron job to update the chats count and message count every 45 minutes
+* Use Elasticsearch to search for messages in spacific chat 
 
 # Used Gems 
 

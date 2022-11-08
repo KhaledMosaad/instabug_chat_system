@@ -7,6 +7,7 @@ The callenge is chat system that has multiple Application identified by token, e
 * Using Docker to contatinerize the application
 * Using RabbitMQ
 * Using Redis 
+* Using RoR
 
 # How to run the application
 
@@ -43,23 +44,23 @@ just one command and everything up and running
 
 
 # My Approach 
-- on this challenge first i create the schema of the database and try to add services one by one 
-* create all database schema
-* create endpoints
-* try to add and fetch directly to database to test my schema and endpoints
-* add redis service to get chat numbers and message numbers from it as a centralized service
-* add rebbitMQ service to asyncly push created messages and chats to it and add two workers to consume from queues 
- - i make the qeueu message acknowledgment to be consistant as possible 
- - make the queue durabe and publish messages as persistent to save it on the disk 
- - consume it by workers with prefetch 1 to consume message one by one due to overload on the workers
- - make sneakers log object log on the same file with Rails file
- - make worker log on sneakers.log file to track issues and problems
+* On this challenge first i create the schema of the database and add services one by one 
+* Create all database schema
+* Create endpoints
+* Add and fetch directly to database to test my schema and endpoints
+* Adding redis service to get chat numbers and message numbers from it as a centralized service
+* Adding rebbitMQ service to asyncly push created messages and chats to it and add two workers to consume from queues 
+ - I make the queue message acknowledgment to be consistant as possible 
+ - Make the queue durable and publish messages as persistent to save it on the disk 
+ - Consume it by workers with prefetch 1 to consume message one by one due to overload on the workers
+ - Make sneakers log object log on the same file with Rails file
+ - Make worker log on sneakers.log file to track issues and problems
  - in this phase i had some issues:
-    1) i had to decide which i will requeue the failure message or reject it and push it to retry queue 
-      - i decide to push it to reject it just for not going into infinite loop 
-    2) i had to decide also how many number of worker will work 
-      - for now i make the number of workers 2 for each queue because it depend on ROR-application
-
+    1) I had to decide which i will requeue the failure message or reject it and push it to retry queue 
+      - I decide to push it to reject it just for not going into infinite loop 
+    2) I had to decide also how many number of worker will work 
+      - For now i make the number of workers 2 for each queue because it depend on ROR-application
+* Cron job to update the chats count and message count every 45 minutes
 
 # Used Gems 
 
